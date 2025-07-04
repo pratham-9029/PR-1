@@ -137,10 +137,12 @@ a{
 :root {
     --theme-green: #5ea51d;
     --theme-pf-name: #00000099;
+    --theme-white: #fff;
 }
 
 html,
 body {
+    background: #f7f7f7;
     font-family: 'Nunito-Regular', Arial, sans-serif;
 }
 
@@ -201,6 +203,9 @@ ul li{
 .col-3 {
     width: 100%;
 }
+.ml-1{
+    margin-left: 2rem;
+}
 
 
 /* Section styling */
@@ -220,54 +225,50 @@ ul li{
 }
 
 /* Card styles */
-.box {
+.property-box{
     position: relative;
-    height: auto;
-    object-fit: cover;
-    border: 1px solid #e0e0e0;
-    border-radius: 5px;
-}
-.box .price{
-    position: absolute;
-    display: inline-block;
-    left: 20px;
-    bottom: 205px;
-    padding: 8px 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: var(--theme-green);
-    color: white;
-    font-size: 16px;
-    font-weight: 600;
-    
-}
-.box .property-image .extra-1{
-    position: absolute;
-    left: 50px;
-    bottom: 205px;
-    height: 30px;
-    width: 80px;
-    border: none;
-    border-radius: 5px;
-    background-color: var(--theme-green);
-    color: white;
-    font-size: 16px;
-    font-weight: 600;
-}
-
-.box .property-image img {
     height: 250px;
-    opacity: 0.5;
-    border-radius: 5px 5px 0 0;
-    transition: all 0.3s ease-in-out;
+    border: 1px solid #e0e0e0;
 }
-.box .property-image img:hover{
-    opacity: 1;
+.property-box .property-image a img {
+    height: 250px;
+    object-fit: cover;
+    /* opacity: 0.5; */
+    border-radius: 5px 5px 0 0;
+    z-index: 1;
+}
+.property-box .overlay-color{
+    position: absolute;
+    top: 0;
+    height: 250px;
+    width: 100%;
+    background-color: #00000057;
+    z-index: 9;
+    transition: all 0.3s ease-in-out;
+
+
+}
+.col:hover .overlay-color{
+    background-color: #ffffff00;
+}
+.property-box .property-image a .propery-price .price-btn{
+    position: absolute;
+    background-color: #fff;
+    margin: 0 0 20px 20px;
+    padding: 4px 8px;
+    bottom: 0;
+    border-radius: 4px;
+    font-weight: 600;
+    color: var(--theme-white);
+    background-color: var(--theme-green);
+    z-index: 99;
 }
 
 /* Card details */
-.details {
-    padding: 20px;
+.property-detail {
+    padding: 25px 20px;
+    background-color: #fff;
+    transition: all 0.3s ease-in-out;
 }
 
 .profile-img {
@@ -283,27 +284,27 @@ ul li{
     object-fit: cover;
 }
 
-.details .profile span {
+.property-detail .profile span {
     margin-left: 10px;
     font-size: 14px;
     font-weight: 600;
     color: var(--theme-pf-name);
 }
-.details .time{
+.property-detail .time{
     color: var(--theme-pf-name);
     font-size: 14px;
     font-weight: 600;
 }
-.details h3 {
+.property-detail h3 {
     margin-top: 20px;
 }
 
-.details h3 a {
+.property-detail h3 a {
     color: #000;
     font-weight: 600;
 }
 
-.details .location{
+.property-detail .location{
     margin-bottom: 20px;
     font-size: 14px;
     color: var(--theme-pf-name);
@@ -311,9 +312,10 @@ ul li{
 
 .location .sale {
     background-color: var(--theme-green);
+    font-size: 14px;
     color: white;
-    padding: 2px 4px;
-    border-radius: 2px;
+    padding: 0 3px;
+    border-radius: 1px;
     margin-left: 8px;    
 }
 .location .fa-location-dot{
@@ -335,4 +337,10 @@ ul li{
     position: absolute;
     height: 15px;
     object-fit: cover;
+}
+
+
+.col:hover .property-detail{
+    background-color: #ffffff00;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
